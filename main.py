@@ -36,6 +36,8 @@ if __name__ == '__main__':
 			calc = 1
 			for i in index[1:]:
 				calc *= probabilities_x[i][row[i]][y]
+				print(row[i], y, calc)	# DBG check calc
+			print()	# DBG
 			result[y] = calc
 		print(result)
 
