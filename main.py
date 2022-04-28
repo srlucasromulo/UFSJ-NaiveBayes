@@ -23,13 +23,13 @@ if __name__ == '__main__':
 		for key in count_x[i].keys():
 			probabilities_x[i].update({key: {}})
 			for y in count_y.keys():
-				prop = count_x[i][key] / count_y[y]
-				prop = prop if prop < 1 else 1	# probability max = 1
+				xij = df.loc[(df[index[0]] == y) & (df[i] == key)]
+				prop = len(xij) / count_y[y]
 				probabilities_x[i][key].update({y: prop})
 
 	# classify entries
 	for row in entry.iloc:
-		result_entry = row[index[0]]
+		# result_entry = row[index[0]]
 		result = {}
 		for y in count_y.keys():
 			result.update({y: None})
